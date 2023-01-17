@@ -3,6 +3,9 @@ This resptory is used to record the data analysis for the wetland soil project, 
 
 # Metagenome
 
+Taxonomy assignment
+
+
 # Metaproteome
 
 # Metabolic modeling
