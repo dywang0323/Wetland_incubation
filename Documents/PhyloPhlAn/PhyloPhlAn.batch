@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --partition=omicsbio
+#SBATCH --nodes=1
+#SBATCH --time=10000:30:00
+#SBATCH --mem=10G
+#SBATCH --exclude=c661
+#SBATCH --job-name=Proteomics
+#SBATCH --output=CHOICE_Bining_%J_stdout.txt
+#SBATCH --error=CHOICE_Bining_%J_stderr.txt
+#SBATCH --mail-user=dywang@ou.edu
+#SBATCH --mail-type=ALL
+#SBATCH --chdir=/ourdisk/hpc/prebiotics/dywang/Projects/Soil_incubation/Metagenome/LW3_top/phylophlan
+
+# module load Python/3.6.4-intel-2018a
+# module load MAFFT/7.429-GCC-8.2.0-2.31.1-with-extensions
+# module load BLAST+/2.11.0-gompi-2020b
+# module load FastTree/2.1.11-GCCcore-8.3.0
+
+# phylophlan_write_config_file --force_nucleotides -d a -o wetland_top.cfg --db_aa diamond --map_dna diamond --msa mafft --trim trimal --tree1 fasttree --tree2 raxml --overwrite
+
+ phylophlan --force_nucleotides --genome_extension fa -i /ourdisk/hpc/prebiotics/dywang/Projects/Soil_incubation/Metagenome/LW3_top/High_Medium_MAG -o /ourdisk/hpc/prebiotics/dywang/Projects/Soil_incubation/Metagenome/LW3_top/phylophlan/output -d phylophlan --diversity high -t a -f /ourdisk/hpc/prebiotics/dywang/Software/phylophlan/phylophlan/phylophlan_configs/wetland_top.cfg
